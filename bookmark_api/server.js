@@ -1,4 +1,4 @@
-//Dependencies
+//DEPENDENCIES
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
@@ -8,6 +8,7 @@ const PORT = 3003;
 const bookmarkController = require('./controllers/bookmarkController');
 
 // MIDDLEWARE
+app.use(express.json());
 app.use('/bookmark', bookmarkController);
 
 // MONGOOSE ERROR / DISCONNECTION
@@ -20,5 +21,5 @@ mongoose.connection.once('open', () => {
   console.log('connected to mongoose...');
 })
 
-//Listener
+//LISTENER
 app.listen(PORT, () => console.log('Listening on port:', PORT));
