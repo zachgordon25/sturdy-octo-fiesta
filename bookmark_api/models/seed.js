@@ -30,5 +30,13 @@ module.exports = [
   {
     title: 'Skeleton',
     url: 'http://getskeleton.com/'
+  },
+  {
+    title: 'Is California on Fire',
+    url: 'http://iscaliforniaonfire.com/'
+  },
+  {
+    title: 'SJP',
+    url: 'https://sarahjessicaparkerlookslikeahorse.com/'
   }
 ];
