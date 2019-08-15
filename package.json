@@ -1,0 +1,23 @@
+{
+  "name": "sturdy-octo-fiesta",
+  "version": "1.0.0",
+  "description": "Peter Dilenschneider",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zachgordon25/sturdy-octo-fiesta.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zachgordon25/sturdy-octo-fiesta/issues"
+  },
+  "homepage": "https://github.com/zachgordon25/sturdy-octo-fiesta#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
