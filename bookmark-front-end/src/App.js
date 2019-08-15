@@ -1,8 +1,8 @@
-import React from 'react';
-import axios from 'axios';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+// import axios from 'axios';
+// import logo from './logo.svg';
 import './App.css';
-import NewForm from './components/NewForm.js';
+// import NewForm from './components/NewForm.js';
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +11,9 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="container"></div>
+      <div className="container">
+        <h1>Test</h1>
+      </div>
     )
   }
 }
