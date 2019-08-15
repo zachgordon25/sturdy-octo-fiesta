@@ -14,7 +14,7 @@ bookmarkController.get('/', (req, res) =>{
 bookmarkController.get ( '/seed' , ( req, res ) => {
   bookmarkController.insertMany ( bookmarkSeed, ( err , bookmark ) =>{
     if (err) { console.log ( err ); } else {
-     res.send (bookmark );
+     res.redirect ('/bookmark ')
     }
   });
 });
