@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
-import NewForm from './components/NewFrom.js';
+import NewForm from './components/NewForm.js';
 
 function App() {
   return (
