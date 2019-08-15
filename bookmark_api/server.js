@@ -5,7 +5,7 @@ const app = express();
 const PORT = 3003;
 
 // CONTROLLERS
-const bookmarkController = require('./controllers/bookmarkController');
+// const bookmarkController = require('./controllers/bookmarkController');
 
 // MIDDLEWARE
 // app.use('/bookmark', bookmarkController);
