@@ -5,10 +5,10 @@ const app = express();
 const PORT = 3003;
 
 // CONTROLLERS
-// const bookmarkController = require('./controllers/bookmarkController');
+const bookmarkController = require('./controllers/bookmarkController');
 
 // MIDDLEWARE
-// app.use('/bookmark', bookmarkController);
+app.use('/bookmark', bookmarkController);
 
 // MONGOOSE ERROR / DISCONNECTION
 mongoose.connection.on('error', err => console.log(err.message + ' is Mongod not running?'));
