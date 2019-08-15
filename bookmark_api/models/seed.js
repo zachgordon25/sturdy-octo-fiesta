@@ -1,4 +1,4 @@
-module.exports = [
+const bookmarkSeed = [
   {
     title: 'Google',
     url: 'https://www.google.com/'
@@ -40,3 +40,6 @@ module.exports = [
     url: 'https://sarahjessicaparkerlookslikeahorse.com/'
   }
 ];
+
+
+module.exports = bookmarkSeed;
