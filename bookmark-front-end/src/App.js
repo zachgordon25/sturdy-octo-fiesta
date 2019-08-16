@@ -16,7 +16,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: ''
+      title: ''
     }
     this.getBookmarks = this.getBookmarks.bind(this)
   }
@@ -25,9 +25,9 @@ class App extends Component {
     const response = await axios(`${baseURL}/bookmark`)
     const data = response.data
     this.setState({
-      name: data
+      title: data
     })
-    console.log(this.state.name);
+    console.log(this.state.title);
   }
   componentDidMount() {
     this.getBookmarks()
