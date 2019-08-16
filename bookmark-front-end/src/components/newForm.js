@@ -13,8 +13,28 @@ class NewForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            title: ''
+            title: '',
+            url: ''
         }
+    }
+    handleChange(event) {
+        this.setState({ [event.currentTarget.id]: event.currentTarget.value})
+    }
+    async handleSubmit (event) {
+        event.preventDefault()
+        const response = await axios.post(`${baseURL}/bookmarks`, {title: this.state.name})
+        this.setState({title: ''})
+        this.props.getBookmarks(response.data)
+    }
+    render() {
+        return(
+            <form onSubmit={this.handleSubmit}>
+                <label htmlFor="title"></label>
+                <input type="text" id="title" name="title" onChange={this.handleChange} value={this.state.title} placeholder="add a website"/>
+                <input type="text" id="url" name="url"  onChange={this.handleChange} value={this.state.url} placeholder="add a url" />
+                <input type="submit" vaule="Add a website" />
+            </form>
+        )
     }
 }
 

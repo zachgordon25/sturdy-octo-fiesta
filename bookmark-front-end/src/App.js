@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
+import NewForm from './components/newForm';
 // import NewForm from './components/NewForm.js';
 let baseURL = process.env.REACT_APP_BASEURL;
 
@@ -37,6 +38,7 @@ class App extends Component {
     return (
       <div className='container'>
         <h1>Test</h1>
+        <NewForm getBookmarks={this.getBookmarks} />
         <table>
           <tbody>
             {this.state.bookmarks.map(bookmarks => {
