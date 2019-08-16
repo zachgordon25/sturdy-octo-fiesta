@@ -41,9 +41,11 @@ class App extends Component {
           <tbody>
             {this.state.bookmarks.map(bookmarks => {
               return (
-                <tr key={bookmarks._id}>
-                  <td>{bookmarks.title}</td>
-                </tr>
+                <a href={bookmarks.url}>
+                  <tr key={bookmarks._id}>
+                    <td>{bookmarks.title}</td>
+                  </tr>
+                </a>
               );
             })}
           </tbody>
