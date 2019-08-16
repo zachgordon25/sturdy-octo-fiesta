@@ -29,7 +29,7 @@ class NewForm extends Component {
       url: this.state.url
     });
     // this.setState({ title: '' });
-    // this.props.getBookmarks(response.data);
+    this.props.getBookmarks(response.data);
   }
   render() {
     return (
