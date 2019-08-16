@@ -11,6 +11,7 @@ const bookmarkController = require('./controllers/bookmarkController');
 // MIDDLEWARE
 app.use(express.json());
 
+
 const whitelist = ['http://localhost:3000', 'https://fathomless-sierra-68956.herokuapp.com']
 const corsOptions = {
   origin: (origin, callback) => {

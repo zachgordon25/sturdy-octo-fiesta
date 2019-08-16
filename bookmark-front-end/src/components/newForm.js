@@ -16,6 +16,8 @@ class NewForm extends Component {
             title: '',
             url: ''
         }
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
     handleChange(event) {
         this.setState({ [event.currentTarget.id]: event.currentTarget.value})

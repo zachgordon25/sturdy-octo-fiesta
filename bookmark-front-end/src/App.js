@@ -20,19 +20,29 @@ class App extends Component {
       bookmarks: []
     };
     this.getBookmarks = this.getBookmarks.bind(this);
+    this.handleAddBookmark = this.handleAddBookmark.bind(this)
   }
+  
+    componentDidMount() {
+      this.getBookmarks();
+    }
 
   async getBookmarks() {
-    const response = await axios(`${baseURL}/bookmark`);
+    const response = await axios.get(`${baseURL}/bookmark`);
     const bookmarks = response.data;
     this.setState({
       bookmarks: bookmarks
     });
     console.log(this.state.bookmarks);
   }
-  componentDidMount() {
-    this.getBookmarks();
+
+  handleAddBookmark(bookmark) {
+    this.setState({
+      bookmarks: [...this.state.bookmarks, bookmark]
+    })
   }
+
+
 
   render() {
     return (
