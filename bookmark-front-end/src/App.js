@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import NewForm from './components/newForm';
-// import NewForm from './components/NewForm.js';
 let baseURL = process.env.REACT_APP_BASEURL;
 
 if (process.env.NODE_ENV === 'development') {
@@ -51,11 +50,11 @@ class App extends Component {
           <tbody>
             {this.state.bookmarks.map(bookmarks => {
               return (
-                <a href={bookmarks.url}>
-                  <tr key={bookmarks._id}>
+                <tr key={bookmarks._id}>
+                  <a href={bookmarks.url}>
                     <td>{bookmarks.title}</td>
-                  </tr>
-                </a>
+                  </a>
+                </tr>
               );
             })}
           </tbody>
