@@ -16,18 +16,18 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: ''
+      bookmarks: []
     };
     this.getBookmarks = this.getBookmarks.bind(this);
   }
 
   async getBookmarks() {
     const response = await axios(`${baseURL}/bookmark`);
-    const title = response.data;
+    const bookmarks = response.data;
     this.setState({
-      title: title
+      bookmarks: bookmarks
     });
-    console.log(this.state.title);
+    console.log(this.state.bookmarks);
   }
   componentDidMount() {
     this.getBookmarks();
@@ -38,13 +38,17 @@ class App extends Component {
       <div className='container'>
         <h1>Test</h1>
         <table>
-          {this.state.bookmarks.map(bookmarks => {
-            return (
-              <tr>
-                <td>{bookmarks.title}</td>
-              </tr>
-            );
-          })}
+          <tbody>
+            {this.state.bookmarks.map(bookmarks => {
+              return (
+                <a href={bookmarks.url}>
+                  <tr key={bookmarks._id}>
+                    <td>{bookmarks.title}</td>
+                  </tr>
+                </a>
+              );
+            })}
+          </tbody>
         </table>
       </div>
     );
