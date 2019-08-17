@@ -23,7 +23,7 @@ bookmarkController.post('/', (req, res)=>{
 })
 
 bookmarkController.delete('/:id', (req, res)=>{
-    bookmarkModel.findByIdAndRemove(req.params.id,(err, deletedHoliday)=>{
+    bookmarkModel.findByIdAndRemove(req.params.id,(err, deletedBookmark)=>{
         if (err) {
             res.status(400).json({ error: err.message})
         }
