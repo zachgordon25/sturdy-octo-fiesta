@@ -29,7 +29,9 @@ class NewForm extends Component {
       url: this.state.url
     });
     // this.setState({ title: '' });
-    this.props.getBookmarks(response.data);
+    /// trying to figure out 
+    // this.props.getBookmarks(response.data);
+    this.props.handleAddBookmark(response.data)
   }
   render() {
     return (

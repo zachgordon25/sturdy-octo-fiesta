@@ -17,10 +17,12 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bookmarks: []
+      bookmarks: [],
+      bookmark: {}
     };
     this.getBookmarks = this.getBookmarks.bind(this);
     this.handleAddBookmark = this.handleAddBookmark.bind(this);
+    this.deleteBookmark = this.deleteBookmark.bind(this)
   }
 
   componentDidMount() {
@@ -42,20 +44,34 @@ class App extends Component {
     });
   }
 
+  async deleteBookmark(id) {
+    await axios.delete(`${baseURL}/bookmark/${id}`);
+    console.log('click')
+    const filteredBookmarks = this.state.bookmarks.filter(bookmark =>{
+      return bookmark._id !==id;
+    })
+    this.setState({
+      bookmarks: filteredBookmarks
+    })
+  }
+  
+
   render() {
     return (
       <div className='container'>
         <h1>Test</h1>
-        <NewForm getBookmarks={this.getBookmarks} />
+        {/* <NewForm getBookmarks={this.getBookmarks} /> */}
+        <NewForm handleAddBookmark={this.handleAddBookmark}/>
         <table>
           <tbody>
             {this.state.bookmarks.map(bookmarks => {
               return (
-                <a href={bookmarks.url}>
-                  <tr key={bookmarks._id}>
-                    <td>{bookmarks.title}</td>
+                <tr key={bookmarks._id}>
+                  <td> <a href={bookmarks.url}>
+                    {bookmarks.title}</a></td>
+                    <td onClick={() => this.deleteBookmark(bookmarks._id)}>Delete</td>
+                
                   </tr>
-                </a>
               );
             })}
           </tbody>
