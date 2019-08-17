@@ -57,18 +57,20 @@ class App extends Component {
 
   render() {
     return (
-      <div className='container'>
-        <h1>Test</h1>
+      <div className='container' >
+    <div className='header'>
+        <h1 className='webTitle'>Bookmarks</h1>
         {/* <NewForm getBookmarks={this.getBookmarks} /> */}
-        <NewForm handleAddBookmark={this.handleAddBookmark}/>
-        <table>
+        <NewForm className='form' handleAddBookmark={this.handleAddBookmark}/>
+        </div>
+        <table className='table'>
           <tbody>
             {this.state.bookmarks.map(bookmarks => {
               return (
                 <tr key={bookmarks._id}>
-                  <td> <a href={bookmarks.url}>
+                  <td> <a className='link' href={bookmarks.url}>
                     {bookmarks.title}</a></td>
-                    <td onClick={() => this.deleteBookmark(bookmarks._id)}>Delete</td>
+                    <td className='delete' onClick={() => this.deleteBookmark(bookmarks._id)}>Delete</td>
                 
                   </tr>
               );
