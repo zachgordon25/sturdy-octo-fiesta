@@ -66,18 +66,11 @@ class App extends Component {
             {this.state.bookmarks.map(bookmarks => {
               return (
                 <tr key={bookmarks._id}>
-<<<<<<< HEAD
                   <td> <a href={bookmarks.url}>
                     {bookmarks.title}</a></td>
                     <td onClick={() => this.deleteBookmark(bookmarks._id)}>Delete</td>
                 
                   </tr>
-=======
-                  <a href={bookmarks.url}>
-                    <td>{bookmarks.title}</td>
-                  </a>
-                </tr>
->>>>>>> 0b030120e0c1c945f6b5eb64db18e58493111c90
               );
             })}
           </tbody>
