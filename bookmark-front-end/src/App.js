@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
-import NewForm from './components/newForm';
+import NewForm from './components/NewForm';
+import EditForm from './components/EditForm'
 let baseURL = process.env.REACT_APP_BASEURL;
 
 if (process.env.NODE_ENV === 'development') {
@@ -83,6 +84,7 @@ class App extends Component {
             })}
           </tbody>
         </table>
+        <EditForm />
       </div>
     );
   }
