@@ -28,8 +28,15 @@ class NewForm extends Component {
       title: this.state.title,
       url: this.state.url
     });
+<<<<<<< HEAD
     this.setState({ title: '' });
     this.props.getBookmarks(response.data);
+=======
+    // this.setState({ title: '' });
+    /// trying to figure out 
+    // this.props.getBookmarks(response.data);
+    this.props.handleAddBookmark(response.data)
+>>>>>>> 8795353c91b9623815ea3823662f790a13fbe204
   }
   render() {
     return (
@@ -41,7 +48,7 @@ class NewForm extends Component {
           name='title'
           onChange={this.handleChange}
           value={this.state.title}
-          placeholder='add a website'
+          placeholder='website'
         />
         <input
           type='text'
@@ -49,7 +56,7 @@ class NewForm extends Component {
           name='url'
           onChange={this.handleChange}
           value={this.state.url}
-          placeholder='add a url'
+          placeholder='http://'
         />
         <input type='submit' vaule='Add a website' />
       </form>
