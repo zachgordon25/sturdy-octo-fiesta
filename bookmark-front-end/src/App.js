@@ -125,10 +125,7 @@ class App extends Component {
                       show={this.state.isShowing}
                       close={this.closeModalHandler}
                     >
-                      <NewForm
-                        className='form'
-                        handleAddBookmark={this.handleAddBookmark}
-                      />
+                      <EditForm key={bookmarks._id} title={bookmarks.title} />
                     </Modal>
                   </td>
                 </tr>
@@ -136,7 +133,6 @@ class App extends Component {
             })}
           </tbody>
         </table>
-
       </div>
     );
   }
