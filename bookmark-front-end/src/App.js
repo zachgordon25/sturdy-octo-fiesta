@@ -4,7 +4,7 @@ import './App.css';
 import axios from 'axios';
 import NewForm from './components/newForm';
 import Modal from './components/Modal/Modal';
-import EditForm from './components/editForm'
+import EditForm from './components/editForm';
 
 let baseURL = process.env.REACT_APP_BASEURL;
 
@@ -26,7 +26,7 @@ class App extends Component {
     this.getBookmarks = this.getBookmarks.bind(this);
     this.handleAddBookmark = this.handleAddBookmark.bind(this);
     this.deleteBookmark = this.deleteBookmark.bind(this);
-    this.openModalHandler = this.openModalHandler.bind(this)
+    this.openModalHandler = this.openModalHandler.bind(this);
   }
 
   componentDidMount() {
@@ -81,7 +81,6 @@ class App extends Component {
       isShowing: false
     });
   };
-
 
   // toggleModal =()=>{
   //   this.setState(prevState=>{
@@ -138,7 +137,11 @@ class App extends Component {
                       show={this.state.isShowing}
                       close={this.closeModalHandler}
                     >
-                      <EditForm key={bookmarks._id} title={bookmarks.title} url={bookmarks.url} />
+                      <EditForm
+                        key={bookmarks._id}
+                        title={bookmarks.title}
+                        url={bookmarks.url}
+                      />
                     </Modal>
                   </td>
                 </tr>
