@@ -64,7 +64,8 @@ class App extends Component {
       return bookmark._id === id;
     });
     this.setState({
-      bookmarks: filteredBookmarks
+      bookmarks: filteredBookmarks,
+      isShowing: true
     });
   }
 
