@@ -26,6 +26,7 @@ class App extends Component {
     this.getBookmarks = this.getBookmarks.bind(this);
     this.handleAddBookmark = this.handleAddBookmark.bind(this);
     this.deleteBookmark = this.deleteBookmark.bind(this);
+    // this.editPage = this.editPage.bind(this)
   }
 
   componentDidMount() {
@@ -58,9 +59,10 @@ class App extends Component {
     });
   }
 
-  openModalHandler = () => {
+  openModalHandler = (bookmark) => {
     this.setState({
-      isShowing: true
+      isShowing: true,
+      bookmark: bookmark
     });
   };
 
@@ -69,6 +71,7 @@ class App extends Component {
       isShowing: false
     });
   };
+
 
   // toggleModal =()=>{
   //   this.setState(prevState=>{
@@ -113,9 +116,9 @@ class App extends Component {
                       />
                     ) : null}
 
-                    <button
+                    <button key={bookmarks._id}
                       className='open-modal-btn'
-                      onClick={this.openModalHandler}
+                      onClick={() => this.openModalHandler(bookmarks)}
                     >
                       Edit
                     </button>
