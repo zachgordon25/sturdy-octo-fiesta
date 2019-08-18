@@ -58,8 +58,7 @@ class App extends Component {
       bookmarks: filteredBookmarks
     });
   }
-  async openModalHandler(id) {
-    await axios.put(`${baseURL}/bookmark/${id}`);
+  openModalHandler(id) {
     console.log('click');
     const filteredBookmarks = this.state.bookmarks.filter(bookmark => {
       return bookmark._id === id;
