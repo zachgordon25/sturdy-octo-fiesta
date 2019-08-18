@@ -26,7 +26,7 @@ class App extends Component {
     this.getBookmarks = this.getBookmarks.bind(this);
     this.handleAddBookmark = this.handleAddBookmark.bind(this);
     this.deleteBookmark = this.deleteBookmark.bind(this);
-    // this.editPage = this.editPage.bind(this)
+    this.openModalHandler = this.openModalHandler.bind(this)
   }
 
   componentDidMount() {
@@ -58,13 +58,23 @@ class App extends Component {
       bookmarks: filteredBookmarks
     });
   }
-
-  openModalHandler = (bookmark) => {
-    this.setState({
-      isShowing: true,
-      bookmark: bookmark
+  async openModalHandler(id) {
+    await axios.put(`${baseURL}/bookmark/${id}`);
+    console.log('click');
+    const filteredBookmarks = this.state.bookmarks.filter(bookmark => {
+      return bookmark._id === id;
     });
-  };
+    this.setState({
+      bookmarks: filteredBookmarks
+    });
+  }
+
+  // openModalHandler = (bookmark) => {
+  //   this.setState({
+  //     isShowing: true,
+  //     bookmark: bookmark
+  //   });
+  // };
 
   closeModalHandler = () => {
     this.setState({
@@ -116,9 +126,9 @@ class App extends Component {
                       />
                     ) : null}
 
-                    <button key={bookmarks._id}
+                    <button
                       className='open-modal-btn'
-                      onClick={() => this.openModalHandler(bookmarks)}
+                      onClick={() => this.openModalHandler(bookmarks._id)}
                     >
                       Edit
                     </button>
