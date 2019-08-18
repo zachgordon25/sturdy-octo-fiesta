@@ -31,11 +31,7 @@ class NewForm extends Component {
     // this.setState({ title: '' });
     /// trying to figure out
     // this.props.getBookmarks(response.data);
-<<<<<<< HEAD
-    this.props.handleAddBookmark(response.data);
-=======
     this.props.handleAddBookmark(response.data)
->>>>>>> 70fdf73455b81e3014fe5eb3f015f38bf0b4a7bc
   }
   render() {
     return (
