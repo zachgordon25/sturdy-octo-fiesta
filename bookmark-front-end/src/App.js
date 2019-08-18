@@ -3,8 +3,12 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import NewForm from './components/newForm';
+<<<<<<< HEAD
+import Modal from './components/Modal';
+=======
 import Modal from './components/Modal/Modal';
 
+>>>>>>> c2e774f32446f6a77f8491d775bde890eab8558f
 let baseURL = process.env.REACT_APP_BASEURL;
 
 if (process.env.NODE_ENV === 'development') {
@@ -20,11 +24,21 @@ class App extends Component {
     this.state = {
       bookmarks: [],
       bookmark: {},
+<<<<<<< HEAD
+      modalOpen: false
+=======
       isShowing: false
+>>>>>>> c2e774f32446f6a77f8491d775bde890eab8558f
     };
     this.getBookmarks = this.getBookmarks.bind(this);
     this.handleAddBookmark = this.handleAddBookmark.bind(this);
     this.deleteBookmark = this.deleteBookmark.bind(this);
+<<<<<<< HEAD
+    this.editBookmark = this.editBookmark.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+=======
+>>>>>>> c2e774f32446f6a77f8491d775bde890eab8558f
   }
 
   componentDidMount() {
@@ -57,6 +71,25 @@ class App extends Component {
     });
   }
 
+<<<<<<< HEAD
+  editBookmark() {
+    alert('clicked');
+  }
+
+  openModal() {
+    this.setState({
+      modalOpen: true
+    });
+    console.log('modal open');
+  }
+
+  closeModal() {
+    this.setState({
+      modalOpen: false
+    });
+    console.log('modal closed');
+  }
+=======
   openModalHandler = () => {
     this.setState({
       isShowing: true
@@ -74,6 +107,7 @@ class App extends Component {
   //     isShowing: !prevState.isShowing
   //   })
   // }
+>>>>>>> c2e774f32446f6a77f8491d775bde890eab8558f
 
   render() {
     return (
@@ -103,6 +137,9 @@ class App extends Component {
                   >
                     Delete
                   </td>
+<<<<<<< HEAD
+                  <td onClick={() => this.editBookmark(bookmarks._id)}>Edit</td>
+=======
 
                   Modal 
                    <td>
@@ -131,6 +168,7 @@ class App extends Component {
                       />
                     </Modal>
                   </td>
+>>>>>>> c2e774f32446f6a77f8491d775bde890eab8558f
                 </tr>
               );
             })}
