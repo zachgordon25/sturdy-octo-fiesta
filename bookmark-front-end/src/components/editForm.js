@@ -38,6 +38,7 @@ class EditForm extends Component {
           id='name'
           name='name'
           placeholder='Name'
+          value={this.props.title}
           onChange={this.handleChange}
 
         />
@@ -46,7 +47,7 @@ class EditForm extends Component {
           id='url'
           name='url'
           placeholder='URL'
-          value={this.state.url}
+          value={this.props.url}
           onChange={this.handleChange}
 
         />

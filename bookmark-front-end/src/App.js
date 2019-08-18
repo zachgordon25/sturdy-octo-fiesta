@@ -125,7 +125,7 @@ class App extends Component {
                       show={this.state.isShowing}
                       close={this.closeModalHandler}
                     >
-                      <EditForm key={bookmarks._id} title={bookmarks.title} />
+                      <EditForm key={bookmarks._id} title={bookmarks.title} url={bookmarks.url} title={bookmarks.title} />
                     </Modal>
                   </td>
                 </tr>
