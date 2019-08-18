@@ -28,8 +28,8 @@ class NewForm extends Component {
       title: this.state.title,
       url: this.state.url
     });
-    // this.setState({ title: '' });
-    // this.props.getBookmarks(response.data);
+    this.setState({ title: '' });
+    this.props.getBookmarks(response.data);
   }
   render() {
     return (
