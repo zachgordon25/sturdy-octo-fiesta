@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import NewForm from './components/newForm';
+import Modal from './components/Modal/Modal';
+
 let baseURL = process.env.REACT_APP_BASEURL;
 
 if (process.env.NODE_ENV === 'development') {
@@ -17,11 +19,12 @@ class App extends Component {
     super(props);
     this.state = {
       bookmarks: [],
-      bookmark: {}
+      bookmark: {},
+      isShowing: false
     };
     this.getBookmarks = this.getBookmarks.bind(this);
     this.handleAddBookmark = this.handleAddBookmark.bind(this);
-    this.deleteBookmark = this.deleteBookmark.bind(this)
+    this.deleteBookmark = this.deleteBookmark.bind(this);
   }
 
   componentDidMount() {
@@ -45,34 +48,90 @@ class App extends Component {
 
   async deleteBookmark(id) {
     await axios.delete(`${baseURL}/bookmark/${id}`);
-    console.log('click')
-    const filteredBookmarks = this.state.bookmarks.filter(bookmark =>{
-      return bookmark._id !==id;
-    })
+    console.log('click');
+    const filteredBookmarks = this.state.bookmarks.filter(bookmark => {
+      return bookmark._id !== id;
+    });
     this.setState({
       bookmarks: filteredBookmarks
-    })
+    });
   }
-  
+
+  openModalHandler = () => {
+    this.setState({
+      isShowing: true
+    });
+  };
+
+  closeModalHandler = () => {
+    this.setState({
+      isShowing: false
+    });
+  };
+
+  // toggleModal =()=>{
+  //   this.setState(prevState=>{
+  //     isShowing: !prevState.isShowing
+  //   })
+  // }
 
   render() {
     return (
-      <div className='container' >
-    <div className='header'>
-        <h1 className='webTitle'>Bookmarks</h1>
-        {/* <NewForm getBookmarks={this.getBookmarks} /> */}
-        <NewForm className='form' handleAddBookmark={this.handleAddBookmark}/>
+      <div className='container'>
+        <div className='header'>
+          <h1 className='webTitle'>Bookmarks</h1>
+          {/* <NewForm getBookmarks={this.getBookmarks} /> */}
+          <NewForm
+            className='form'
+            handleAddBookmark={this.handleAddBookmark}
+          />
         </div>
         <table className='table'>
           <tbody>
             {this.state.bookmarks.map(bookmarks => {
               return (
                 <tr key={bookmarks._id}>
-                  <td> <a className='link' href={bookmarks.url}>
-                    {bookmarks.title}</a></td>
-                    <td className='delete' onClick={() => this.deleteBookmark(bookmarks._id)}>Delete</td>
-                
-                  </tr>
+                  <td>
+                    {' '}
+                    <a className='link' href={bookmarks.url}>
+                      {bookmarks.title}
+                    </a>
+                  </td>
+                  <td
+                    className='delete'
+                    onClick={() => this.deleteBookmark(bookmarks._id)}
+                  >
+                    Delete
+                  </td>
+
+                  Modal 
+                   <td>
+                    {this.state.isShowing ? (
+                      <div
+                        onClick={this.closeModalHandler}
+                        className='back-drop'
+                      />
+                    ) : null}
+
+                    <button
+                      className='open-modal-btn'
+                      onClick={this.openModalHandler}
+                    >
+                      Edit
+                    </button>
+
+                    <Modal
+                      className='modal'
+                      show={this.state.isShowing}
+                      close={this.closeModalHandler}
+                    >
+                      <NewForm
+                        className='form'
+                        handleAddBookmark={this.handleAddBookmark}
+                      />
+                    </Modal>
+                  </td>
+                </tr>
               );
             })}
           </tbody>
