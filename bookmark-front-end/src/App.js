@@ -103,9 +103,8 @@ class App extends Component {
                   >
                     Delete
                   </td>
-
                   Modal
-                   <td>
+                  <td>
                     {this.state.isShowing ? (
                       <div
                         onClick={this.closeModalHandler}
