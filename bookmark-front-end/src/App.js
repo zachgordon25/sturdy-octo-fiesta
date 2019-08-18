@@ -3,7 +3,12 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import NewForm from './components/newForm';
+<<<<<<< HEAD
 import Modal from './components/Modal';
+=======
+import Modal from './components/Modal/Modal';
+
+>>>>>>> c2e774f32446f6a77f8491d775bde890eab8558f
 let baseURL = process.env.REACT_APP_BASEURL;
 
 if (process.env.NODE_ENV === 'development') {
@@ -19,14 +24,21 @@ class App extends Component {
     this.state = {
       bookmarks: [],
       bookmark: {},
+<<<<<<< HEAD
       modalOpen: false
+=======
+      isShowing: false
+>>>>>>> c2e774f32446f6a77f8491d775bde890eab8558f
     };
     this.getBookmarks = this.getBookmarks.bind(this);
     this.handleAddBookmark = this.handleAddBookmark.bind(this);
     this.deleteBookmark = this.deleteBookmark.bind(this);
+<<<<<<< HEAD
     this.editBookmark = this.editBookmark.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+=======
+>>>>>>> c2e774f32446f6a77f8491d775bde890eab8558f
   }
 
   componentDidMount() {
@@ -59,6 +71,7 @@ class App extends Component {
     });
   }
 
+<<<<<<< HEAD
   editBookmark() {
     alert('clicked');
   }
@@ -76,6 +89,25 @@ class App extends Component {
     });
     console.log('modal closed');
   }
+=======
+  openModalHandler = () => {
+    this.setState({
+      isShowing: true
+    });
+  };
+
+  closeModalHandler = () => {
+    this.setState({
+      isShowing: false
+    });
+  };
+
+  // toggleModal =()=>{
+  //   this.setState(prevState=>{
+  //     isShowing: !prevState.isShowing
+  //   })
+  // }
+>>>>>>> c2e774f32446f6a77f8491d775bde890eab8558f
 
   render() {
     return (
@@ -105,17 +137,43 @@ class App extends Component {
                   >
                     Delete
                   </td>
+<<<<<<< HEAD
                   <td onClick={() => this.editBookmark(bookmarks._id)}>Edit</td>
+=======
+
+                  Modal 
+                   <td>
+                    {this.state.isShowing ? (
+                      <div
+                        onClick={this.closeModalHandler}
+                        className='back-drop'
+                      />
+                    ) : null}
+
+                    <button
+                      className='open-modal-btn'
+                      onClick={this.openModalHandler}
+                    >
+                      Edit
+                    </button>
+
+                    <Modal
+                      className='modal'
+                      show={this.state.isShowing}
+                      close={this.closeModalHandler}
+                    >
+                      <NewForm
+                        className='form'
+                        handleAddBookmark={this.handleAddBookmark}
+                      />
+                    </Modal>
+                  </td>
+>>>>>>> c2e774f32446f6a77f8491d775bde890eab8558f
                 </tr>
               );
             })}
           </tbody>
         </table>
-        <Modal modalOpen={this.state.modalOpen} />
-        <div>
-          <h1>Modal</h1>
-          <button onClick={this.openModal}>Open</button>
-        </div>
       </div>
     );
   }
