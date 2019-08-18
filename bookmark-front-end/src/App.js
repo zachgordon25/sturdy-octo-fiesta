@@ -58,13 +58,13 @@ class App extends Component {
       bookmarks: filteredBookmarks
     });
   }
-  openModalHandler(id) {
+  openModalHandler(bookmark) {
     console.log('click');
-    const filteredBookmarks = this.state.bookmarks.filter(bookmark => {
-      return bookmark._id === id;
-    });
+    // const filteredBookmarks = this.state.bookmarks.filter(bookmark => {
+    //   return bookmark._id === id;
+    // });
     this.setState({
-      bookmarks: filteredBookmarks,
+      bookmark: bookmark,
       isShowing: true
     });
   }
@@ -94,11 +94,13 @@ class App extends Component {
         <div className='header'>
           <h1 className='webTitle'>Bookmarks</h1>
           {/* <NewForm getBookmarks={this.getBookmarks} /> */}
+
           <NewForm
             className='form'
             handleAddBookmark={this.handleAddBookmark}
           />
         </div>
+
         <table className='table'>
           <tbody>
             {this.state.bookmarks.map(bookmarks => {
@@ -141,6 +143,7 @@ class App extends Component {
                         key={bookmarks._id}
                         title={bookmarks.title}
                         url={bookmarks.url}
+                        bookmarks={bookmarks}
                       />
                     </Modal>
                   </td>
