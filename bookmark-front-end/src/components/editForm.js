@@ -5,9 +5,7 @@ class EditForm extends Component {
     constructor(props) {
         super(props);
         this.state={
-            // name: this.props.bookmarks.name,
-            // url: this.props.book.url,
-            // id: this.props.bookmark._id
+            
 
             
         }
@@ -29,8 +27,33 @@ class EditForm extends Component {
 		});
 		this.props.handleEditBookmarkShow(response.data);
 		this.props.stopEditing();
-	}
-    
+    }
+    render(){
+        return() {
+        <form className='editForm' onSubmit={this.handleSubmit}>
+        <h3>Edit {this.props.bookmark.name}</h3>
+        <input
+            type='text'
+            id='name'
+            name='name'
+            placeholder='Name'
+            onChange={this.handleChange}
+            required={true}
+            value={this.state.name}
+        />
+        <input
+            type='url'
+            id='url'
+            name='url'
+            placeholder='URL'
+            onChange={this.handleChange}
+            required={true}
+            value={this.state.url}
+        />
+        <input type='submit' value='Save' />
+    </form>
+    }
+}
 }
 
-export default editForm;
+export default EditForm;

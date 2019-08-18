@@ -4,6 +4,7 @@ import './App.css';
 import axios from 'axios';
 import NewForm from './components/newForm';
 import Modal from './components/Modal/Modal';
+import EditForm from './components/editForm'
 
 let baseURL = process.env.REACT_APP_BASEURL;
 
