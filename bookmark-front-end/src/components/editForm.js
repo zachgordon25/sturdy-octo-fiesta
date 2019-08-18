@@ -2,15 +2,23 @@ import React, { Component } from 'react'
 import axios from 'axios';
 
 class EditForm extends Component {
+<<<<<<< HEAD
     constructor(props) {
         super(props);
         this.state={
             
+=======
+  constructor(props) {
+    super(props);
+    this.state = {
+      // name: this.props.bookmarks.name,
+      // url: this.props.book.url,
+      // id: this.props.bookmark._id
+>>>>>>> 8fe8b01330b0d5a04dbe319d46f0dbd6f35a5c10
 
-            
-        }
 
     }
+<<<<<<< HEAD
     handleChange(event) {
 		const { name, value } = event.currentTarget;
 		this.setState({
@@ -54,6 +62,28 @@ class EditForm extends Component {
     </form>
     }
 }
+=======
+
+  }
+  handleChange(event) {
+    const { name, value } = event.currentTarget;
+    this.setState({
+      [name]: value
+    });
+  }
+
+  async handleSubmit(event) {
+    event.preventDefault();
+    const baseURL = this.props.baseURL;
+    const response = await axios.put(`${baseURL}/bookmark/${this.state._id}`, {
+      name: this.state.name,
+      url: this.state.url
+    });
+    this.props.handleEditBookmarkShow(response.data);
+    this.props.stopEditing();
+  }
+
+>>>>>>> 8fe8b01330b0d5a04dbe319d46f0dbd6f35a5c10
 }
 
 export default EditForm;
