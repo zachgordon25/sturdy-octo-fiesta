@@ -58,13 +58,13 @@ class App extends Component {
       bookmarks: filteredBookmarks
     });
   }
-  openModalHandler(bookmark) {
+  openModalHandler(id) {
     console.log('click');
-    // const filteredBookmarks = this.state.bookmarks.filter(bookmark => {
-    //   return bookmark._id === id;
-    // });
+    const filteredBookmarks = this.state.bookmarks.filter(bookmark => {
+      return bookmark._id === id;
+    });
     this.setState({
-      bookmark: bookmark,
+      bookmark: filteredBookmarks,
       isShowing: true
     });
   }
