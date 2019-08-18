@@ -29,9 +29,9 @@ class NewForm extends Component {
       url: this.state.url
     });
     // this.setState({ title: '' });
-    /// trying to figure out 
+    /// trying to figure out
     // this.props.getBookmarks(response.data);
-    this.props.handleAddBookmark(response.data)
+    this.props.handleAddBookmark(response.data);
   }
   render() {
     return (
@@ -51,7 +51,7 @@ class NewForm extends Component {
           name='url'
           onChange={this.handleChange}
           value={this.state.url}
-          placeholder='http://'
+          placeholder='http:// '
         />
         <input type='submit' vaule='Add a website' />
       </form>
