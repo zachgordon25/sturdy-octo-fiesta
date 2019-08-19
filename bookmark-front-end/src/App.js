@@ -114,9 +114,10 @@ class App extends Component {
                     className='delete'
                     onClick={() => this.deleteBookmark(bookmarks._id)}
                   >
+                    {/* MAYBE WRAP A BUTTON TAG AROUND DELETE */}
                     Delete
                   </td>
-                  Modal
+                  {/* Modal */}
                   <td>
                     {this.state.isShowing ? (
                       <div
