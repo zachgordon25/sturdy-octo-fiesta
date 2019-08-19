@@ -53,7 +53,7 @@ class NewForm extends Component {
           value={this.state.url}
           placeholder='http:// '
         />
-        <input type='submit' vaule='Add a website' />
+        <input class='inputBtn' type='submit' vaule='Add a website' />
       </form>
     );
   }
