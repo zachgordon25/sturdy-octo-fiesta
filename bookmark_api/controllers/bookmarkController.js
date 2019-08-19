@@ -48,5 +48,4 @@ bookmarkController.put('/:id', (req, res) => {
 //    });
 // });
 
-
 module.exports = bookmarkController;
