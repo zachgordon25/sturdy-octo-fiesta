@@ -53,7 +53,11 @@ class NewForm extends Component {
           value={this.state.url}
           placeholder='http:// '
         />
-        <input class='inputBtn' type='submit' vaule='Add a website' />
+        <input
+          style={{ background: '#0597F2', color: 'ghostwhite' }}
+          type='submit'
+          vaule='Add a website'
+        />
       </form>
     );
   }
