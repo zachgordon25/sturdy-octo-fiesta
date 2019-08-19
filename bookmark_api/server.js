@@ -1,6 +1,7 @@
-//Dependencies
+//DEPENDENCIES
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const app = express();
 const PORT = 3003;
 
@@ -8,7 +9,22 @@ const PORT = 3003;
 const bookmarkController = require('./controllers/bookmarkController');
 
 // MIDDLEWARE
-// app.use('/bookmark', bookmarkController);
+app.use(express.json());
+
+
+const whitelist = ['http://localhost:3000', 'https://fathomless-sierra-68956.herokuapp.com']
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (whitelist.indexOf(origin) !== 1) {
+      callback(null, true)
+    } else {
+      callback(new Error('not allowed CORS'))
+    }
+  }
+}
+app.use(cors(corsOptions))
+
+app.use('/bookmark', bookmarkController);
 
 // MONGOOSE ERROR / DISCONNECTION
 mongoose.connection.on('error', err => console.log(err.message + ' is Mongod not running?'));
@@ -20,5 +36,5 @@ mongoose.connection.once('open', () => {
   console.log('connected to mongoose...');
 })
 
-//Listener
+//LISTENER
 app.listen(PORT, () => console.log('Listening on port:', PORT));
